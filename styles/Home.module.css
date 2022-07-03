@@ -1,5 +1,6 @@
 .container {
-  padding: 0 2rem;
+  width: max-content;
+  margin: 0 auto;
 }
 
 .main {
@@ -106,6 +107,12 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
+}
+
+.favz {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 @media (max-width: 600px) {

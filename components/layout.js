@@ -9,7 +9,7 @@ export default function Layout({ children }) {
       <Head>
         <link rel="icon" href="/favz.ico" />
         <meta name="description" content="Create customized bookmarks" />
-        <meta property="og:image" content="https://ibb.co/3FhNNfn" />
+        <meta property="og:image" content="https://i.ibb.co/YdjkkDx/favz.png" />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>

@@ -13,6 +13,8 @@ export default function Layout({ children }) {
         <meta property="og:title" content="Favz" />
         <meta property="og:description" content="Save your bookmarks" />
         <meta property="og:image" content="https://i.ibb.co/YdjkkDx/favz.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Head>
       <header className={styles.header}>
         <Image height={50} width={50} src="/favz.png" alt={"Favz"}></Image>

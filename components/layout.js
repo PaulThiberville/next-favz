@@ -1,17 +1,14 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "./layout.module.css";
-import utilStyles from "../styles/utils.module.css";
-import Link from "next/link";
+import Image from "next/dist/client/image";
+export const siteTitle = "Favz";
 
-export const siteTitle = "Star Wars Infos";
-
-export default function Layout({ children, home }) {
+export default function Layout({ children }) {
   return (
-    <div className={styles.container}>
+    <div className={styles.layout}>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Browse Star Wars movies" />
+        <link rel="icon" href="/favz.ico" />
+        <meta name="description" content="Create customized bookmarks" />
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
@@ -22,10 +19,11 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        <h1 className={styles.title}>Favz</h1>
+        <Image height={50} width={50} src="/favz.png" alt={"Favz"}></Image>
+        <h1>Favz</h1>
       </header>
       <main className={styles.main}>{children}</main>
-      <footer>by Paul Thiberville</footer>
+      <footer className={styles.footer}>Made by Paul Thiberville</footer>
     </div>
   );
 }

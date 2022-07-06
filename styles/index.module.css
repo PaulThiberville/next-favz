@@ -1,0 +1,52 @@
+.favz {
+  max-height: 100%;
+  flex-grow: 1;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+  padding-bottom: 100px;
+  border-top: 1px solid black;
+}
+.favz::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.searchContainer {
+  display: flex;
+  margin: 0 20px;
+}
+
+.searchBar {
+  flex-grow: 1;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border-right: none;
+  padding: 10px;
+}
+
+.searchBar:focus {
+  outline: none;
+}
+
+.searchButton {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: rgb(109, 109, 252);
+  border: none;
+}
+
+.searchButton:disabled {
+  background-color: lightgray;
+}
+
+.searchButton * {
+  color: white;
+}
+
+.error {
+  height: 20px;
+  color: red;
+  width: max-content;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}

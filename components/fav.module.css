@@ -1,43 +1,37 @@
-.fav {
-  display: flex;
-  padding: 10px;
+.article {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   border-radius: 5px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-}
-
-.fav:hover {
-  box-shadow: rgba(0, 145, 255, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-}
-
-.fav a {
+  overflow: hidden;
+  padding: 10px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 95%;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 20px;
 }
 
-.img {
-  width: 50px;
-  height: 50px;
-  margin: 0 10px;
-  overflow: hidden;
+.article:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }
 
-.infos {
-  width: 70%;
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.infos * {
-  white-space: nowrap;
-  overflow: hidden;
-  display: block;
-  text-overflow: ellipsis;
+.delete {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 100%;
+  background-color: transparent;
 }
 
-.button {
-  width: 15px;
-  height: 15px;
-  margin: auto 0;
+.delete:hover {
+  background-color: rgb(252, 90, 90);
+}
+
+.delete:hover * {
+  color: white;
 }

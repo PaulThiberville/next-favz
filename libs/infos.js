@@ -1,6 +1,6 @@
 export const getInfos = async (url) => {
   try {
-    const rawResponse = await fetch("https://favz-api.herokuapp.com/", {
+    const response = await fetch("https://favz-api.herokuapp.com/", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -8,9 +8,14 @@ export const getInfos = async (url) => {
       },
       body: JSON.stringify({ url }),
     });
-    if (rawResponse.ok) {
-      const response = await rawResponse.json();
-      return response;
+    if (response.status === 404) {
+      throw new Error("Invalid URL");
+    }
+    if (response.status === 500) {
+      throw new Error("Internal Error");
+    }
+    if (response.ok) {
+      return await response.json();
     }
   } catch (error) {
     return { error: error.message };

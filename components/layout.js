@@ -9,9 +9,10 @@ export default function Layout({ children }) {
       <Head>
         <link rel="icon" href="/favz.ico" />
         <meta name="description" content="Create customized bookmarks" />
+        <meta property="og:url" content="https://next-favz.vercel.app/" />
+        <meta property="og:title" content="Favz" />
+        <meta property="og:description" content="Save your bookmarks" />
         <meta property="og:image" content="https://i.ibb.co/YdjkkDx/favz.png" />
-        <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
         <Image height={50} width={50} src="/favz.png" alt={"Favz"}></Image>

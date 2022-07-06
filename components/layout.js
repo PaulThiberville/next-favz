@@ -19,7 +19,7 @@ export default function Layout({ children }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        <Image height={50} width={50} src="/Favz.png" alt={"Favz"}></Image>
+        <Image height={50} width={50} src="/favz.png" alt={"Favz"}></Image>
         <h1>Favz</h1>
       </header>
       <main className={styles.main}>{children}</main>

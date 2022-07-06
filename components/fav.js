@@ -15,7 +15,7 @@ export default function Fav({ fav, deleteFav }) {
           height={"50px"}
           width={"50px"}
           alt={fav.title}
-          src={fav.iconUrl != "" ? fav.iconUrl : "/Favz.png"}
+          src={fav.iconUrl != "" ? fav.iconUrl : "/favz.png"}
         />
         <section>
           <h2>{fav.title}</h2>

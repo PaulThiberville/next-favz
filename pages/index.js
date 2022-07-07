@@ -56,7 +56,7 @@ export default function Home() {
         </button>
       </div>
       <section className={Styles.favz}>
-        {favz.map((fav) => (
+        {[...favz].reverse().map((fav) => (
           <Fav key={fav.key} fav={fav} setFavz={setFavz} favz={favz} />
         ))}
       </section>

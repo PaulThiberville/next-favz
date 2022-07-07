@@ -29,7 +29,7 @@ export default function Home() {
       status: "new",
     };
     setUrl("");
-    setFavz([...favz, newFav]);
+    setFavz([newFav, ...favz]);
   };
 
   return (
@@ -56,7 +56,7 @@ export default function Home() {
         </button>
       </div>
       <section className={Styles.favz}>
-        {[...favz].reverse().map((fav) => (
+        {favz.map((fav) => (
           <Fav key={fav.key} fav={fav} setFavz={setFavz} favz={favz} />
         ))}
       </section>

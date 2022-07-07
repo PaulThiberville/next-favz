@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  margin: 20px;
+  margin: 10px;
 }
 
 .article:hover {
@@ -19,6 +19,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  height: 72px;
 }
 
 .delete {
@@ -34,4 +35,20 @@
 
 .delete:hover * {
   color: white;
+}
+
+.infos {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.infos * {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.url {
+  color: gray;
 }

@@ -5,46 +5,34 @@ import Layout from "../components/layout";
 import Fav from "../components/fav";
 import Styles from "../styles/index.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faAdd } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   const [url, setUrl] = useState("");
   const [favz, setFavz] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
 
   useEffect(() => {
     const localFavz = JSON.parse(localStorage.getItem("favz"));
+    console.log("local Favz :", localFavz);
     if (localFavz) {
       setFavz(localFavz);
     }
   }, []);
 
-  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  useEffect(() => {
+    console.log("Favz changed !");
+  }, [favz]);
 
-  const handleSearchClicked = async (e) => {
-    setError("");
+  const handleSearchClicked = () => {
+    const currentDate = new Date();
+    const timestamp = currentDate.getTime();
+    const newFav = {
+      url: url,
+      key: timestamp,
+      status: "new",
+    };
     setUrl("");
-    const infos = await getInfos(url);
-    if (infos?.error) {
-      setError(infos.error);
-    }
-    if (infos && !infos.error) {
-      infos.url = url;
-      const currentDate = new Date();
-      const timestamp = currentDate.getTime();
-      infos.key = timestamp;
-      localStorage.setItem("favz", JSON.stringify([...favz, infos]));
-      setFavz([...favz, infos]);
-    }
-    await delay(3000);
-    setLoading(false);
-  };
-
-  const deleteFav = (key) => {
-    const newFavz = favz.filter((fav) => fav.key != key);
-    localStorage.setItem("favz", JSON.stringify(newFavz));
-    setFavz(newFavz);
+    setFavz([...favz, newFav]);
   };
 
   return (
@@ -60,22 +48,19 @@ export default function Home() {
           type="text"
           onChange={(e) => setUrl(e.target.value)}
           value={url}
+          placeholder={"Example : http://www.twitch.tv"}
         />
         <button
           className={Styles.searchButton}
-          disabled={loading || url === ""}
-          onClick={async (e) => {
-            setLoading(true);
-            await handleSearchClicked(e);
-          }}
+          disabled={url === ""}
+          onClick={() => handleSearchClicked()}
         >
-          <FontAwesomeIcon icon={faSearch} className="icon" />
+          <FontAwesomeIcon icon={faAdd} className="icon" />
         </button>
       </div>
-      <p className={Styles.error}>{error}</p>
       <section className={Styles.favz}>
         {favz.map((fav) => (
-          <Fav key={fav.key} fav={fav} deleteFav={deleteFav} />
+          <Fav key={fav.key} fav={fav} setFavz={setFavz} favz={favz} />
         ))}
       </section>
     </Layout>

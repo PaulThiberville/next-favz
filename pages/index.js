@@ -20,10 +20,6 @@ export default function Home() {
     }
   }, []);
 
-  useEffect(() => {
-    setRevertedFavz([...favz].reverse());
-  }, [favz]);
-
   const handleSearchClicked = () => {
     const currentDate = new Date();
     const timestamp = currentDate.getTime();

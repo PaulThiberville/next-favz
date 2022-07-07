@@ -10,6 +10,7 @@ import { faAdd } from "@fortawesome/free-solid-svg-icons";
 export default function Home() {
   const [url, setUrl] = useState("");
   const [favz, setFavz] = useState([]);
+  const [revertedFavz, setRevertedFavz] = useState([]);
 
   useEffect(() => {
     const localFavz = JSON.parse(localStorage.getItem("favz"));
@@ -20,7 +21,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    console.log("Favz changed !");
+    setRevertedFavz([...favz].reverse());
   }, [favz]);
 
   const handleSearchClicked = () => {
@@ -59,7 +60,7 @@ export default function Home() {
         </button>
       </div>
       <section className={Styles.favz}>
-        {favz.map((fav) => (
+        {revertedFavz.map((fav) => (
           <Fav key={fav.key} fav={fav} setFavz={setFavz} favz={favz} />
         ))}
       </section>
